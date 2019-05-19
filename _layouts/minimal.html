@@ -15,7 +15,7 @@ common-js:
   <body>
 
     <div role="main" class="container main-content">
-      {{ content }}
+      {{ content | replace: 'a href="http', 'a rel="nofollow" href="http' }}
     </div>
 
     {% include footer-minimal.html %}

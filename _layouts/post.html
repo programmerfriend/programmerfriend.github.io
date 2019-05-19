@@ -32,7 +32,7 @@ layout: base
       {% endif %}
 
       <article role="main" class="blog-post">
-        {{ content }}
+        {{ content | replace: 'a href="http', 'a rel="nofollow" href="http' }}
       </article>
 
       {% if page.tags.size > 0 %}
