@@ -14,7 +14,7 @@ baseurl: ""
 # Of course don't forget to change the username and projectname to YOUR username and project
 
 # Name of website
-title: Programmerfriend.com
+title: ProgrammerFriend.com
 
 # Short description of your site
 description: The resource for your Programmer needs
@@ -253,4 +253,5 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-redirect-from
+  - jekyll-seo-tag
 # Beautiful Jekyll
