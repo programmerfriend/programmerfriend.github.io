@@ -11,7 +11,7 @@ tags: [codereview, best-practices]
 
 At work, we are using Code Reviews. Everybody knows what a Code Review is, everybody does them (at least I hope you all do).
 
-If you spent some time to talk with people about Code Reviews, everybody has its own opinion on what a good Code Review should include or how to do Code Reviews. What are the obligations of each participant? What are well known Code Review Best Practices? But before we start talking about Principles of Code Reviews or which Code Review Best Practices there are – start slow and talk about the basics.
+If you spent some time to talk with people about Code Reviews, everybody has its own opinion on <!--more-->what a good Code Review should include or how to do Code Reviews. What are the obligations of each participant? What are well known Code Review Best Practices? But before we start talking about Principles of Code Reviews or which Code Review Best Practices there are – start slow and talk about the basics.
 
 ## The Basics
 

@@ -15,7 +15,7 @@ tags: [dependencies, best-practices]
 During the last weeks at work, I had to learn this the hard way:
 **Dependencies are screwing you over and over again.**
 
-You may ask “why?” and for the reasons causing my bitter sentiment. In fact, they are basic. I am a developer of a backend powering an Android and an iOS App. Due to outages of our dependencies we are currently getting negative feedback. This negative feedback comes back in the form of single star reviews in the App Stores.
+You may ask “why?” and for the reasons causing my bitter sentiment. In <!--more-->fact, they are basic. I am a developer of a backend powering an Android and an iOS App. Due to outages of our dependencies we are currently getting negative feedback. This negative feedback comes back in the form of single star reviews in the App Stores.
 
 “But how can this happen?” you might be asking.
 For me, it is also hard to accept that it is currently that way.

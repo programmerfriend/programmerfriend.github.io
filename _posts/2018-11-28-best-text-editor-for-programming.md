@@ -9,7 +9,7 @@ redirect_from:
 tags: [texteditor, tools]
 ---
 
-Over the last years I often switched Text Editors. I think this choice is really much personal and can change over time. In this article I want to showcase the Best Text Editor for Programming (at least for myself) that I came across so far. At the moment I would even consider myself to be using multiple editors at the same time – but more about this in just a moment.
+Over the last years I often switched Text Editors. I think this choice is really much personal and can change over time. In this article I want to showcase the Best Text Editors for Programming <!--more-->(at least for myself) that I came across so far. At the moment I would even consider myself to be using multiple editors at the same time – but more about this in just a moment.
 
 ----
 
