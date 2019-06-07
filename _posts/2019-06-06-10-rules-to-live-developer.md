@@ -37,9 +37,9 @@ Personally, I also have the feeling that the tests are better since they are not
 
 What I mean about tests here are "big tests", mostly integration tests covering the basics. Unit tests are for me mostly written in the "refactoring phase" since changing a lot of interfaces often means to re-write a lot of unit tests. Integration Tests are much more stable in this department.)
 
-## 4. Done is better than perfect!
+## 4. Don't let the need for perfection get in your way!
 I think everyone is or was guilty of doing this: Spending way more time on something than you actually should have spent.
-When coming back after a while, you see a lot of things you could have done with this time.
+When coming back after a while, you see a lot of things you could have done instead with this time.
 
 ## 5. Praise in Public, Criticize in Private!
 Over the years, I often read about it and have witnessed it in practice.
