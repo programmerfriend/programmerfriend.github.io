@@ -6,6 +6,7 @@ bigimg: /img/content/git-best-practices_title.png
 permalink: /git-best-practices/
 redirect_from: 
     - /2019/03/01/git-best-practices/
+    - /index.php/2019/03/01/git-best-practices/
 tags: [best-practices, git]
 ---
 
