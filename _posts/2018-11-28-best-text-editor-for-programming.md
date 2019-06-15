@@ -6,6 +6,7 @@ bigimg: /img/content/editor_title_big.jpg
 permalink: /best-text-editor-programming/
 redirect_from: 
     - /2018/11/28/best-text-editor-programming/
+    - /index.php/2018/11/28/best-text-editor-programming/
 tags: [texteditor, tools]
 ---
 

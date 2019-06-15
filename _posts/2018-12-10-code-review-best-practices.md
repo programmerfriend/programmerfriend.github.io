@@ -6,6 +6,7 @@ bigimg: /img/content/codereview_title.jpg
 permalink: /code-review-best-practices/
 redirect_from: 
     - /2018/12/10/code-review-best-practices/
+    - /index.php/2018/12/10/code-review-best-practices/
 tags: [codereview, best-practices]
 ---
 
