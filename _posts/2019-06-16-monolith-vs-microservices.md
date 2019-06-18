@@ -116,3 +116,5 @@ You have a team of 3 developers? Probably they will be fine building and maintai
 The other factors are rate of change and complexity. A high rate of change and a high complexity would both be factors which move my decision more to the Microservice architecture.
 
 In contrast, when you are not really familiar with the domain, starting out with a Monolith can be really beneficial. Just do yourself a favor and try your best on keeping it modularized. This will easen the way in case you ever decide to cut your Monolith into multiple services down the road.
+
+In case you are more interested in a post about experience with microservices - feel free to go to my article: [What two years with Microservices taught me](https://programmerfriend.com/what-two-years-with-microservices-taught-me/)
