@@ -55,6 +55,25 @@ layout: base
         {% include social-share.html %}
       {% endif %}
 
+      {% assign posts = site[page.collection] | sample:5 %}
+      {% assign relatedCount = 0 %}
+      {% if posts.size > 0 %}
+        <h3>Related Posts:</h3>
+      {% endif %}
+      {% for post in posts %}
+        {% if post.url != page.url %}
+        <h4>
+          <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">
+            {{ post.title }}
+          </a>
+         </h4>
+          {% assign relatedCount = relatedCount | plus: 1 %}
+          {% if relatedCount >= 4 %}
+            {% break %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+
       <ul class="pager blog-pager">
         {% if page.previous.url %}
         <li class="previous">
