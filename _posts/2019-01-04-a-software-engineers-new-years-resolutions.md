@@ -6,7 +6,7 @@ bigimg: /img/content/new-year2019_title.jpg
 permalink: /year-a-software-engineers-new-years-resolutions/
 redirect_from: 
     - /2019/01/04/year-a-software-engineers-new-years-resolutions/are-to-blame/
-tags: [new-year]
+tags: [new-year, developers]
 ---
 
 The time between Christmas and New Year’s Eve is always a time for me which I use to reflect a lot upon myself. It is a tranquil time of the year where I reason about the good, the bad and the ugly of the last year and what I want to achieve in the next year. So what is better than writing an own list of New Year’s Resolutions.

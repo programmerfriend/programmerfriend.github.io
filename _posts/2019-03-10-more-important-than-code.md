@@ -6,7 +6,7 @@ bigimg: /img/content/more-important-than-code_title.jpg
 permalink: /the-things-more-important-than-code/
 redirect_from: 
     - /2019/03/10/the-things-more-important-than-code/
-tags: [soft-skills, developer]
+tags: [soft-skills, developers]
 ---
 There are Programmers living in ivory towers built from their own egos ruling over their systems. Technical solutions for the sake of technical solutions are not the things you should be building. Your code has to solve a problem. It is not beneficial to build a solution and start to look for matching problems. There is this saying:
 
