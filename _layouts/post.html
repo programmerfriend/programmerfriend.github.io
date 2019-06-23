@@ -36,6 +36,31 @@ layout: base
       </div>
       <article role="main" class="blog-post">
         {{ content | replace: 'a href="http', 'a rel="nofollow" href="http' }}
+
+        {% assign posts = site[page.collection] | sample:5 %}
+        {% assign relatedCount = 0 %}
+        {% if posts.size > 0 %}
+          <aside class="related-posts">
+          <hr/>
+          <h3>Related Posts:</h3>
+          <ul>
+        {% endif %}
+        {% for post in posts %}
+          {% if post.url != page.url %}
+            <li><a href="{{ post.url }}"><img src="{{post.bigimg}}" />
+              {{ post.title }}
+            </a></li>
+            {% assign relatedCount = relatedCount | plus: 1 %}
+            {% if relatedCount >= 4 %}
+              {% break %}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+        {% if posts.size > 0 %}
+          </ul>
+          </aside>
+        {% endif %}
+
       </article>
 
       {% if page.tags.size > 0 %}
@@ -54,25 +79,6 @@ layout: base
       {% if page.social-share %}
         {% include social-share.html %}
       {% endif %}
-
-      {% assign posts = site[page.collection] | sample:5 %}
-      {% assign relatedCount = 0 %}
-      {% if posts.size > 0 %}
-        <h3>Related Posts:</h3>
-      {% endif %}
-      {% for post in posts %}
-        {% if post.url != page.url %}
-        <h4>
-          <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">
-            {{ post.title }}
-          </a>
-         </h4>
-          {% assign relatedCount = relatedCount | plus: 1 %}
-          {% if relatedCount >= 4 %}
-            {% break %}
-          {% endif %}
-        {% endif %}
-      {% endfor %}
 
       <ul class="pager blog-pager">
         {% if page.previous.url %}

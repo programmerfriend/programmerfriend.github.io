@@ -2,3 +2,19 @@
 	margin-left: 15px,
 	margin-right: 15px
 }
+
+.related-posts {
+	padding-top: 2em
+}
+
+.related-posts > ul > li {
+	list-style-type: none;
+	font-size: 1.25em;
+	margin-bottom: 1.25em
+}
+
+
+.related-posts > ul > li > img {
+	width: 50%;
+	height: 50%
+}
