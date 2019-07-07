@@ -2,7 +2,7 @@
 layout: post
 title: "You are not Google. You are not Netflix."
 bigimg: /img/content/not-google_title.jpg
-share-img: /img/content/not-google_title.jpg
+share-img: https://programmerfriend.com/img/content/not-google_title.jpg
 tags: [experience, developers]
 ---
 

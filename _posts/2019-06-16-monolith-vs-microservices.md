@@ -2,7 +2,7 @@
 layout: post
 title: "Monolith vs Microservices"
 bigimg: /img/content/monolith-vs-microservces_title.jpg
-share-img: /img/content/monolith-vs-microservces_title.jpg
+share-img: https://programmerfriend.com/img/content/monolith-vs-microservces_title.jpg
 tags: [microservices, developers]
 ---
 
