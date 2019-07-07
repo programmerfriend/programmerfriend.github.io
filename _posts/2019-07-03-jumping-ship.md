@@ -2,6 +2,7 @@
 layout: post
 title: "Jumping Ship for Career Progression."
 bigimg: /img/content/jumping-ship_title.jpg
+share-img: /img/content/jumping-ship_title.jpg
 tags: [experience, developers]
 ---
 Having a look at my LinkedIn Network, I realized there are a few ways of growing your Software Engineering Career. I am trying to keep my personal opinion out of the middle part and only get involved in the end of the article.
