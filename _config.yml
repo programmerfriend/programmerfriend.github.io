@@ -94,6 +94,9 @@ share-links-active:
   google: false
   linkedin: true
 
+twitter:
+  username: eiselems
+
 # How to display the link to the website in the footer
 # Remove this if you don't want a link in the footer
 url-pretty: "ProgrammerFriend.com"  # eg. "deanattali.com/beautiful-jekyll"
