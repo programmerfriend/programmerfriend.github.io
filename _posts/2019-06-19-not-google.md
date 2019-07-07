@@ -3,6 +3,7 @@ layout: post
 title: "You are not Google. You are not Netflix."
 bigimg: /img/content/not-google_title.jpg
 share-img: https://programmerfriend.com/img/content/not-google_title.jpg
+description: "People are often chasing ideals set by companies much bigger than themselves. On this way they are shooting themselves in the foot, but what to do instead?"
 tags: [experience, developers]
 ---
 

@@ -4,6 +4,7 @@ title: Git Best Practices
 image: /img/content/git-best-practices_title.png
 bigimg: /img/content/git-best-practices_title.png
 permalink: /git-best-practices/
+description: "Git is a powerful tool. But with power comes great responsibility. What kind of Git Best Practices are there? Let's have a look at those I identified over the years."
 redirect_from: 
     - /2019/03/01/git-best-practices/
     - /index.php/2019/03/01/git-best-practices/
