@@ -63,4 +63,4 @@ I am currently 3 years at my current employer (a 1400 person company) and have r
 I would really like to hear about your opinion on this topic!
 
 **Do you think jumping ship is improving your career or is it worth to stay a while?**<br>
-Feel free to reach out on [Twitter](https://twitter.com) or join the discussion on [Reddit](https://www.reddit.com/r/programming/comments/c8uc0m/jumping_ship_for_career_progression/) or [Hackernews](https://news.ycombinator.com/item?id=20349340).
+Feel free to reach out on [Twitter](https://twitter.com/eiselems) or join the discussion on [Reddit](https://www.reddit.com/r/programming/comments/c8uc0m/jumping_ship_for_career_progression/) or [Hackernews](https://news.ycombinator.com/item?id=20349340).
