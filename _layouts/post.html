@@ -47,8 +47,9 @@ layout: base
         {% endif %}
         {% for post in posts %}
           {% if post.url != page.url %}
-            <li><a href="{{ post.url }}"><img src="{{post.bigimg}}" />
-              {{ post.title }}
+            <li><a href="{{ post.url }}">
+                {{ post.title }}
+                <img src="{{post.bigimg}}" />
             </a></li>
             {% assign relatedCount = relatedCount | plus: 1 %}
             {% if relatedCount >= 4 %}
