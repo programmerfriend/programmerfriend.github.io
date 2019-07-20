@@ -18,7 +18,7 @@ Currently, we are only responsible for the EMEA (Europe, the Middle East, and Af
 
 ## Why am I even writing this?
 
-I am trying to digest my experience frome one year ago. 
+I am trying to digest my experience from one year ago. 
 
 **What happened there?**
 
