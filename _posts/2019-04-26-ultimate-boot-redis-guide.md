@@ -9,7 +9,9 @@ gh-badge: [star, fork, follow]
 tags: [spring-boot, redis]
 ---
 
-Since it has been a while since I wrote my article about [‘How We Made Our Spring Boot Applications More Robust with Redis Cache and Spring AOP‘]({% post_url 2019-01-16-more-robust-boot-with-redis-cache-and-spring-aop %}), I now want to write the Ultimate Guide on getting started with Redis Cache and Spring Boot 2.
+Spring Boot and Redis are a powerful combination. This article shows how you can use it for your caching needs. The Ultimate Guide to Redis Cache with Spring Boot 2 will help you to fulfill all requirements.
+
+It has been a while since I wrote my article about [‘How We Made Our Spring Boot Applications More Robust with Redis Cache and Spring AOP‘]({% post_url 2019-01-16-more-robust-boot-with-redis-cache-and-spring-aop %}), so I guess it is time to write another technical article about Redis and Spring Boot.
 
 During my last 2 years at work, I would say a lot of our current architecture is only possible by using Caching. At the center of this is Spring Boot together with Redis. In this Guide I want to give you the same powerful tools for your current and future Implementations.
 
