@@ -23,6 +23,8 @@ description: The resource for your Programmer needs
 
 # List of links in the navigation bar
 navbar-links:
+  Articles: "index"
+  Newsletter: "newsletter"
   About Me: "aboutme"
   Privacy Policy: "privacypolicy"
 
