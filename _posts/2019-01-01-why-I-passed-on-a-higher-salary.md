@@ -6,6 +6,7 @@ bigimg: /img/content/passed-salary_title.jpg
 permalink: /why-i-passed-on-a-55-higher-salary/
 redirect_from: 
     - /2019/01/01/why-i-passed-on-a-55-higher-salary/
+    - index.php/2019/01/01/why-i-passed-on-a-55-higher-salary/
 tags: [salary, decisions]
 ---
 
