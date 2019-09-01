@@ -7,6 +7,7 @@ bigimg: /img/content/five-stages-of-grief_title.jpeg
 permalink: /five-stages-of-grief-letting-go-of-a-software-project/
 redirect_from: 
     - /2019/03/17/five-stages-of-grief-letting-go-of-a-software-project/
+    - /index.php/2019/03/17/five-stages-of-grief-letting-go-of-a-software-project/
 tags: [soft-skills, experience]
 ---
 You might be aware of the Kübler-Ross model (known as five stages of grief).
