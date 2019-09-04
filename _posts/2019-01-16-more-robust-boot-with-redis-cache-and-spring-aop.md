@@ -8,6 +8,7 @@ gh-repo: eiselems/spring-redis-two-layer-cache
 gh-badge: [star, fork, follow]
 redirect_from: 
     - /2019/01/16/how-we-made-our-spring-boot-applications-more-robust-with-redis-cache-and-spring-aop/
+    - /index.php/2019/01/16/how-we-made-our-spring-boot-applications-more-robust-with-redis-cache-and-spring-aop/
 tags: [spring-boot, redis]
 ---
 
