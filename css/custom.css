@@ -18,3 +18,8 @@
 	width: 50%;
 	height: 50%
 }
+
+pre > code {
+	font-size: 12px;
+	line-height: 1px;
+}
