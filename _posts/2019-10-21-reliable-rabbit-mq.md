@@ -3,7 +3,7 @@ layout: post
 title: "Reliable Execution with RabbitMQ"
 subtitle: "Build a Retrying Scheduler"
 bigimg: /img/content/reliable-rabbit_title.jpg
-share-img: https://programmerfriend.com/img/content/reliable-rabbit_title.jpg
+share-img: https://programmerfriend.com/img/content/reliable-rabbit_queues.png
 description: "Tutorial: Let's build a Retrying Scheduler with RabbitMQ!"
 gh-repo: programmerfriend/spring-boot-reliable-rabbitmq
 gh-badge: [star, fork]
@@ -43,7 +43,7 @@ When you define a TTL (Time-to-live) on a queue, it will drop messages which hav
 
 #### Dead-Lettering
 DLE (Dead Letter Exchanges) and DLQ (Dead-Letter-Queues) are both something you can configure as policy for all queues or manually per queue.
-Dead-Lettering defines what should happen with messages that get rejected by a consumer.
+Dead-Lettering defines what should happen with messages that get rejected by a consumer. When RabbitMQ uses the dead-letter-mechanic, it passes the message to a specific exchange and/or routing-key and adds some meta-data about the dead-letter-process (e.g. how often the message was already dead-lettered).
 
 #### Poison Messages
 Poison Messages are messages that can not get consumed and cause havoc in your system.
@@ -65,8 +65,7 @@ Have a look at the following sketch:
 
 What do we see here?
 * **WorkerQueue**: The queue which contains our internal event to trigger the update to the external system. Our Application is bound to it and consumes all messages. It has a DLQ configuration to pass rejected messages to the WaitQueue.
-* **WaitQueue**: Most of the magic lives here: It has no active listener bound, but a TTL of 1 minute and a DLQ configuration. With this in place, it will forward all message which it receives after 1 minute to the defined DLQ. We use this to put our messages back into the RetryQueue after 1 minute.
-* **RetryQueue**: A special queue for all messages which will get retried. We could even get rid of the RetryQueue and just use the MainQueue but then the listener implementation would not be so clean since we would have to mix new and retried messages at the same place in the code.
+* **WaitQueue**: Most of the magic lives here: It has no active listener bound, but a TTL of 1 minute and a DLQ configuration. With this in place, it will forward all message which it receives after 1 minute to the defined DLQ. We use this to put our messages back into the WorkerQueue after 1 minute.
 * **ParkingLot**: When an update didn't make it after all Retrys got executed - we put it in the parkingLot so that we can have a manual look why the messages were not able to get processed. The application could also contain a logic to publish here directly to get rid of poison messages.
 
 ### Let's code this!
@@ -83,10 +82,13 @@ Thankfully the autoconfiguration is doing a lot of things. If you run with the d
 Having `spring-amqp` on the classpath is enough to connect your application to RabbitMQ.
 
 In case you don't have the default credentials, feel free to configure the credentials in the `application.properties`.
+When you are already there, disable the default requeue behaviour by adding `spring.rabbitmq.listener.simple.default-requeue-rejected=false`.
 
 ```
 spring.rabbitmq.password=$$$$
 spring.rabbitmq.username=Admin
+
+spring.rabbitmq.listener.simple.default-requeue-rejected=false
 ```
 
 Time to define our queues and bindings.
@@ -98,15 +100,13 @@ As you have seen in the chart, we need an exchange, a few queues and a few bindi
 @Configuration
 public class RabbitConfiguration {
 
-    public static final String EXCHANGE_NAME = "tutorial-exchange";
+    private static final String EXCHANGE_NAME = "tutorial-exchange";
     public static final String PRIMARY_QUEUE = "primaryWorkerQueue";
 
-    public static final String RETRY_QUEUE = PRIMARY_QUEUE + ".retry";
-    public static final String WAIT_QUEUE = PRIMARY_QUEUE + ".wait";
+    private static final String WAIT_QUEUE = PRIMARY_QUEUE + ".wait";
 
     public static final String PARKINGLOT_QUEUE = PRIMARY_QUEUE + ".parkingLot";
 
-    public static final String X_RETRIES_HEADER = "x-retries";
     private static final String PRIMARY_ROUTING_KEY = "primaryRoutingKey";
 
     @Bean
@@ -126,14 +126,9 @@ public class RabbitConfiguration {
     Queue waitQueue() {
         return QueueBuilder.durable(WAIT_QUEUE)
             .deadLetterExchange(EXCHANGE_NAME)
-            .deadLetterRoutingKey(RETRY_QUEUE)
+            .deadLetterRoutingKey(PRIMARY_ROUTING_KEY)
             .ttl(10000)
             .build();
-    }
-
-    @Bean
-    Queue retryQueue() {
-        return new Queue(RETRY_QUEUE);
     }
 
     @Bean
@@ -152,11 +147,6 @@ public class RabbitConfiguration {
     }
 
     @Bean
-    Binding retryBinding(Queue retryQueue, DirectExchange exchange) {
-        return BindingBuilder.bind(retryQueue).to(exchange).with(RETRY_QUEUE);
-    }
-
-    @Bean
     Binding parkingBinding(Queue parkinglotQueue, DirectExchange exchange) {
         return BindingBuilder.bind(parkinglotQueue).to(exchange).with(PARKINGLOT_QUEUE);
     }
@@ -168,8 +158,7 @@ This should be enough to build something similar to what we had in our sketch.
 A short recap what we defined here:
 * a `direct exchange` for our queues
 * our `primary worker queue` which will dead-letter its mesages to the `wait queue`
-* the `wait queue`, which has a TTL of 10 seconds (10000ms) and dead-letters its messages to the `retry queue`
-* the `retry queue`
+* the `wait queue`, which has a TTL of 10 seconds (10000ms) and dead-letters its messages to the `primary worker queue`
 * the `parking lot queue`
 * the correct bindings for all of them
 
@@ -178,16 +167,17 @@ A short recap what we defined here:
 
 #### Building the retry logic
 
-As seen in the chart we need two listeners in our scenario.
-One listener for the `primary worker queue` and one for the `retry queue`.
-Also we will publish messages to the `wait queue` and the `parking lot queue`.
+As seen in the chart we need one listener for the `primary worker queue`.
+Also we will publish messages to the `parking lot queue`.
 
-Creating the listeners is easy by just using the `@RabbitListener` annotation and specifing the queue name.
+Creating the listener is easy by just using the `@RabbitListener` annotation and specifing the queue name.
 Publish to an exchange using a `RoutingKey` is easily be done by interacting with `RabbitTemplate` and its `send`-method.
 
 ```
 @Component
 public class RetryingRabbitListener {
+
+    private Logger logger = LoggerFactory.getLogger(RetryingRabbitListener.class);
 
     private RabbitTemplate rabbitTemplate;
 
@@ -196,43 +186,37 @@ public class RetryingRabbitListener {
     }
 
     @RabbitListener(queues = PRIMARY_QUEUE)
-    public void primary(String in) throws Exception {
-        System.out.println("Message read from testq : " + in);
-        throw new AmqpRejectAndDontRequeueException("There was an error");
+    public void primary(Message in) throws Exception {
+        logger.info("Message read from workerQueue: " + in);
+        if (hasExceededRetryCount(in)) {
+            putIntoParkingLot(in);
+            return;
+        }
+        throw new Exception("There was an error");
     }
 
-    @RabbitListener(queues = RETRY_QUEUE)
-    public void republish(Message failedMessage) {
-        System.out.println("Message read from RetryQueue : " + failedMessage);
-        Map<String, Object> headers = failedMessage.getMessageProperties().getHeaders();
-        Integer retriesHeader = (Integer) headers.get(X_RETRIES_HEADER);
-
-        if (retriesHeader == null) {
-            retriesHeader = 0;
+    private boolean hasExceededRetryCount(Message in) {
+        List<Map<String, ?>> xDeathHeader = in.getMessageProperties().getXDeathHeader();
+        if (xDeathHeader != null && xDeathHeader.size() >= 1) {
+            Long count = (Long) xDeathHeader.get(0).get("count");
+            return count >= 3;
         }
-        if (retriesHeader < 3) {
 
-            try {
-                //assume here something real
-                throw new Exception("There was an error handling the message");
-            } catch (Exception e) {
-                headers.put(X_RETRIES_HEADER, retriesHeader + 1);
-                System.out.println("Doing something resulting in an error again {error-count: " + retriesHeader + "}");
-                this.rabbitTemplate.send(EXCHANGE_NAME, WAIT_QUEUE, failedMessage);
-            }
-        } else {
-            putIntoParkingLot(failedMessage);
-        }
+        return false;
     }
 
     private void putIntoParkingLot(Message failedMessage) {
-        System.out.println("Retries exeeded putting into parking lot");
+        logger.info("Retries exeeded putting into parking lot");
         this.rabbitTemplate.send(PARKINGLOT_QUEUE, failedMessage);
     }
 }
 ```
 
 This should be enough to implement the flow of our charts.
+The only interesting thing that happens here is that we read the count from the first xDeathHeader element.
+When a message is affected by a dead-letter-mechanic, rabbitMQ adds an entry in the xDeathHeader-Array.
+This array has an entry for each Queue on which a message was dead-lettered. Since our messages will only pass one Queue, it is fine to just check the first element.
+If you want to be safe, you could find the correct array element by filtering for the queueName. If you want to learn more about the internal mechanics of RabbitMQ, the [documentation](https://www.rabbitmq.com/dlx.html) is again really good.
 
 Let's head over to the Application class and modify it a bit to generate regularly some messages.
 
@@ -259,7 +243,7 @@ public class ReliableRabbitmqAmqpApplication implements CommandLineRunner {
 ```
 
 Now you can start the application and watch it doing its thing - either in the logs or on [http://localhost:15672/#/queues](http://localhost:15672/#/queues).
-You should see how the application create a message each minute. The message passes the `primary worker queue`, the `wait queue` and the `retry queue`. Due to us not implementing a success case, all messages end up in the `parkinglot queue`.
+You should see how the application create a message each minute. The message passes the `primary worker queue` and the `wait queue`. Due to us not implementing a success case, all messages end up in the `parkinglot queue`.
 
 <figure>
   <img src="{{site.url}}/img/content/reliable-rabbit_admin.png" alt="Screenshot of the RabbitMQ Queue view"/>
@@ -273,3 +257,33 @@ So what did we do?
 We built a retrying consumer using RabbitMQ.  We have the possibility to take a look at the messages which we were not able to deliver, since they end up in the `parkinglot queue`. 
 
 I hope you liked this tutorial and you learned something. The working application can be found on [GitHub](https://github.com/programmerfriend/spring-boot-reliable-rabbitmq).
+
+
+## Footnote
+
+### Why didn't you just use the built-in retry of spring-amqp?
+
+Yes, I am aware of the retry available within `spring-amqp`.
+In the repository of this tutorial, there is also an example where I used it to implement the retry (see: [https://github.com/programmerfriend/spring-boot-reliable-rabbitmq/tree/master/spring-amqp-retry](https://github.com/programmerfriend/spring-boot-reliable-rabbitmq/tree/master/spring-amqp-retry)).
+
+Overall it is:
+* using only configuration
+* only requiring one additional queue (parkingLot)
+* well known by other developers
+
+So, let me tell you why I didn't use it:
+
+The problem I have with it is that it is blocking `the RabbitListener` while waiting for the retry.
+
+In our use-case we have a wait between retries of one hour. A single message would block the whole listener for one hour.
+
+In order to improve this, we could increase the amount of available listeners (either via concurrency or just adding more application instances) but the cure is probably not much better than the disease here. Even with more listeners, you could block all of them - we would just need more messages now.
+
+Also: If you encounter this behaviour in production, it is really hard to see.
+Out of a sudden, you might be having a lot of exceptions and then no logs at all - while all messages start piling up in the queues.
+
+I am not against using the built-in retry mechanismn. I would just not use it for long times between retries.
+
+
+Again thanks for your time finishing this tutorial, hope again you learned a lot.
+Feel free to leave a comment.
