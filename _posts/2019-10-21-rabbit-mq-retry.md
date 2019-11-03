@@ -1,39 +1,40 @@
 ---
 layout: post
-title: "Reliable Execution with RabbitMQ"
-subtitle: "Build a Retrying Scheduler"
+title: "Implementing Retries using RabbitMQ and Spring Boot 2"
 bigimg: /img/content/reliable-rabbit_title.jpg
 share-img: https://programmerfriend.com/img/content/reliable-rabbit_queues.png
-description: "Tutorial: Let's build a Retrying Scheduler with RabbitMQ!"
+description: "Tutorial: Let's build a Retrying Scheduler with RabbitMQ and SpringBoot!"
 gh-repo: programmerfriend/spring-boot-reliable-rabbitmq
 gh-badge: [star, fork]
+redirect_from: 
+    - /reliable-rabbit-mq/
 tags: [spring-boot, rabbitmq]
 ---
 
 
 This article is inspired by a solution we needed at work:
-We want to build a Retrying Scheduler using Spring Boot and RabbitMQ.
+We needed a way to retry asynchronous operations using Spring Boot and RabbitMQ.
 
 ## WHY?
 
 Sometimes it is necessary to execute certain operations decoupled from the rest of your business logic.
 We needed to send an update to an external system (e.g. an audit log). The update itself is not necessary for the operation of our own user flows.
-The user should not be aware if it fails. This is why we decided to build it using messaging.
+The user should not be aware of failures. This is why we decided to build it using messaging.
 
 Since the update is really important, we need to make sure that the event arrives at the external system - even if the external system is currently not available.
 
 ### The Requirements
 * The creation of the update should be isolated from the rest of our implementation.
-* If the update fails (for whatever reason) it should be send again later
+* If the update fails (for whatever reason) it should be sent again later
 * The time between each retry should be 1 hour
 
-## Planning the solution
+## Planning the Solution
 
-Since we already wanted to use RabbitMQ for receiving the internal trigger for the update - why not try to build the retry behaviour on top of it?
+Since we already wanted to use RabbitMQ for receiving the internal trigger for the update - why not try to build the retry behavior on top of it?
 
 ### A bit of RabbitMQ
 
-This article assumes quite a bit of knowledge about RabbitMQ (e.g. about Exchanges, Queues and Bindings).
+This article assumes quite a bit of knowledge about RabbitMQ (e.g. about Exchanges, Queues, and Bindings).
 If you need a start on these topics, the [RabbitMQ Documentation](https://www.rabbitmq.com/documentation.html) is really good!
 
 Despite the disclaimer about the previous knowledge I want to quickly explain two mechanics which are quite essential for understanding this tutorial
@@ -42,12 +43,12 @@ Despite the disclaimer about the previous knowledge I want to quickly explain tw
 When you define a TTL (Time-to-live) on a queue, it will drop messages which have been kept for longer than the defined TTL.
 
 #### Dead-Lettering
-DLE (Dead Letter Exchanges) and DLQ (Dead-Letter-Queues) are both something you can configure as policy for all queues or manually per queue.
+DLE (Dead Letter Exchanges) and DLQ (Dead-Letter-Queues) are both something you can configure as a policy for all queues or manually per queue.
 Dead-Lettering defines what should happen with messages that get rejected by a consumer. When RabbitMQ uses the dead-letter-mechanic, it passes the message to a specific exchange and/or routing-key and adds some meta-data about the dead-letter-process (e.g. how often the message was already dead-lettered).
 
 #### Poison Messages
 Poison Messages are messages that can not get consumed and cause havoc in your system.
-In the worst case it is a message that crashes your consumer. If the listeners are not correctly configured it can happen that all clients try to consume the messages and instance after instance crashes. Poison Messages are one of the reasons why you should think about DLEs and DLQs.
+In the worst case, it is a message that crashes your consumer. If the listeners are not correctly configured all clients can try to consume the messages and instance after instance crashes. Poison Messages are one of the reasons why you should think about DLEs and DLQs.
 
 ### The principle
 
@@ -65,8 +66,8 @@ Have a look at the following sketch:
 
 What do we see here?
 * **WorkerQueue**: The queue which contains our internal event to trigger the update to the external system. Our Application is bound to it and consumes all messages. It has a DLQ configuration to pass rejected messages to the WaitQueue.
-* **WaitQueue**: Most of the magic lives here: It has no active listener bound, but a TTL of 1 minute and a DLQ configuration. With this in place, it will forward all message which it receives after 1 minute to the defined DLQ. We use this to put our messages back into the WorkerQueue after 1 minute.
-* **ParkingLot**: When an update didn't make it after all Retrys got executed - we put it in the parkingLot so that we can have a manual look why the messages were not able to get processed. The application could also contain a logic to publish here directly to get rid of poison messages.
+* **WaitQueue**: Most of the magic lives here: It has no active listener bound, but a TTL of 1 minute and a DLQ configuration. With this in place, it will forward all messages which it receives after 1 minute to the defined DLQ. We use this to put our messages back into the WorkerQueue after 1 minute.
+* **ParkingLot**: When an update didn't make it after all Retries got executed - we put it in the parkingLot so that we can have a manual look why the messages were not able to get processed. The application could also contain a logic to publish here directly to get rid of poison messages.
 
 ### Let's code this!
 
@@ -74,7 +75,7 @@ What do we see here?
 
 Use the spring-initializer, the web-version is available at http://start.spring.io.
 
-There create a service which has the only dependencies: **Spring for RabbitMQ**.
+There create a service that has the only dependencies: **Spring for RabbitMQ**.
 
 #### Connecting to RabbitMQ and creating the necessary Queues
 
@@ -94,7 +95,7 @@ spring.rabbitmq.listener.simple.default-requeue-rejected=false
 Time to define our queues and bindings.
 
 With `spring-amqp` you can easily define your queues in your application code.
-As you have seen in the chart, we need an exchange, a few queues and a few bindings.
+As you have seen in the chart, we need an exchange, a few queues, and a few bindings.
 
 ```
 @Configuration
@@ -155,9 +156,9 @@ public class RabbitConfiguration {
 ```
 
 This should be enough to build something similar to what we had in our sketch.
-A short recap what we defined here:
+A short recap of what we defined here:
 * a `direct exchange` for our queues
-* our `primary worker queue` which will dead-letter its mesages to the `wait queue`
+* our `primary worker queue` which will dead-letter its messages to the `wait queue`
 * the `wait queue`, which has a TTL of 10 seconds (10000ms) and dead-letters its messages to the `primary worker queue`
 * the `parking lot queue`
 * the correct bindings for all of them
@@ -168,9 +169,9 @@ A short recap what we defined here:
 #### Building the retry logic
 
 As seen in the chart we need one listener for the `primary worker queue`.
-Also we will publish messages to the `parking lot queue`.
+Also, we will publish messages to the `parking lot queue`.
 
-Creating the listener is easy by just using the `@RabbitListener` annotation and specifing the queue name.
+Creating the listener is easily done by just using the `@RabbitListener` annotation and specifying the queue name.
 Publish to an exchange using a `RoutingKey` is easily be done by interacting with `RabbitTemplate` and its `send`-method.
 
 ```
@@ -254,7 +255,7 @@ You should see how the application create a message each minute. The message pas
 
 So what did we do?
 
-We built a retrying consumer using RabbitMQ.  We have the possibility to take a look at the messages which we were not able to deliver, since they end up in the `parkinglot queue`. 
+We built a retrying consumer using RabbitMQ.  We have the possibility to take a look at the messages which we were not able to deliver since they end up in the `parkinglot queue`. 
 
 I hope you liked this tutorial and you learned something. The working application can be found on [GitHub](https://github.com/programmerfriend/spring-boot-reliable-rabbitmq).
 
@@ -273,17 +274,17 @@ Overall it is:
 
 So, let me tell you why I didn't use it:
 
-The problem I have with it is that it is blocking `the RabbitListener` while waiting for the retry.
+The problem I have with it is that it is blocking the `RabbitListener` while waiting for the retry.
 
-In our use-case we have a wait between retries of one hour. A single message would block the whole listener for one hour.
+In our use-case, we have a wait between retries of one hour. A single message would block the whole listener for one hour.
 
-In order to improve this, we could increase the amount of available listeners (either via concurrency or just adding more application instances) but the cure is probably not much better than the disease here. Even with more listeners, you could block all of them - we would just need more messages now.
+In order to improve this, we could increase the number of available listeners (either via concurrency or just adding more application instances) but the cure is probably not much better than the disease here. Even with more listeners, you could block all of them - we would just need more messages now.
 
-Also: If you encounter this behaviour in production, it is really hard to see.
+Also: If you encounter this behaviour in production, it is really hard to debug.
 Out of a sudden, you might be having a lot of exceptions and then no logs at all - while all messages start piling up in the queues.
 
-I am not against using the built-in retry mechanismn. I would just not use it for long times between retries.
+I am not against using the built-in retry mechanism. I would just not use it for long times between retries.
 
 
-Again thanks for your time finishing this tutorial, hope again you learned a lot.
+Again thanks for your time finishing this tutorial, I hope you learned a lot.
 Feel free to leave a comment.
