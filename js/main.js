@@ -135,6 +135,20 @@ var main = {
   }
 };
 
+function init() {
+  var imgDefer = document.getElementsByTagName('img');
+  for (var i = 0; i < imgDefer.length; i++) {
+    if (imgDefer[i].getAttribute('data-src')) {
+      imgDefer[i].setAttribute('src',imgDefer[i].getAttribute('data-src'));
+    }
+  }
+
+  console.log("images loaded");
+}
+
+window.onload = init;
+
+
 // 2fc73a3a967e97599c9763d05e564189
 
 document.addEventListener('DOMContentLoaded', main.init);
