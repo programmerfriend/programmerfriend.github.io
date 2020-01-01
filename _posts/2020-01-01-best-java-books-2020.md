@@ -1,8 +1,10 @@
 ---
 layout: post-affiliate
-title: "Best Java Books in 2019"
+title: "Best Java Books in 2020"
 bigimg: /img/content/best_java_books-title.jpg
 share-img: https://programmerfriend.com/img/content/best_java_books-title.jpg
+redirect_from: 
+    - /best-java-books-2019/
 tags: [java, books]
 ---
 
@@ -24,7 +26,7 @@ tags: [java, books]
 * [Spring Microservices in Action](#spring-microservices-in-action)
 * [Learning Spring Boot 2.0](#learning-spring-boot-20-by-greg-l-turnquist)
 
-Personally, I am always on the hunt for good programming books. Books are an opinionated topic, therefore I am quite sure some people would disagree with this selection. Nonetheless let's have a look at my opinionated selection of the best Java books in 2019.
+Personally, I am always on the hunt for good programming books. Books are an opinionated topic, therefore I am quite sure some people would disagree with this selection. Nonetheless let's have a look at my opinionated selection of the best Java books to read in 2020.
 
 You might realize that a lot of books here are not Java-specific at all, still they are the ones I would highly recommend to any Java Developer.
 
