@@ -19,7 +19,7 @@ Let's first start with the basics.
 Java provides at least fours ways of properly creating random numbers.
 
 ### 1. Using Math.random Method
-The most basic way of generating Random Numbers in Java is to use the `Math.random()` method.
+The most basic way of generating Random Numbers in Java is to use the [`Math.random()`](https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#random--) method.
 
 It doesn't take any parameter and simply returns a number which is greater than or equal 0.0 and less than 1.0. In comparison to other methods, `Math.random()` only returns Double values.
 
@@ -48,7 +48,7 @@ Second randomValue: 0.9664240431908591
 <br>
 ### 2. Using java.util.Random Class
 
-The `java.util.Random` is really handy. It provides methods such as `nextInt()`, `nextDouble()`, `nextLong()` and `nextFloat()` to generate random values of different types.
+The [`java.util.Random`](https://docs.oracle.com/javase/8/docs/api/java/util/Random.html) is really handy. It provides methods such as `nextInt()`, `nextDouble()`, `nextLong()` and `nextFloat()` to generate random values of different types.
 
 When you invoke one of these methods, you will get a Number between 0 and the given parameter (the value given as the parameter itself is excluded).
 
@@ -94,7 +94,7 @@ Second double: 0.42704069834866554
 
 This class was added in Java 1.7, so hopefully you can use it. 
 
-`ThreadLocalRandom` is similar to the previous approach and defines methods such as `nextInt()` or `nextDouble()`. In fact, it is just a small change to the previously used `Random`. See for yourself:
+[`ThreadLocalRandom`](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ThreadLocalRandom.html) is similar to the previous approach and defines methods such as `nextInt()` or `nextDouble()`. In fact, it is just a small change to the previously used `Random`. See for yourself:
 
 ```java
 import java.util.concurrent.ThreadLocalRandom;
@@ -134,7 +134,7 @@ Second double: 0.7118640850137595
 <br>
 ### 4. Using java.security.SecureRandom
 
-The previous solutions are using pseudo-random numbers. This one here is a `cryptographically strong random number generator`.
+The previous solutions are using pseudo-random numbers. This one here is a `cryptographically strong random number generator` see the JavaDocs of [SecureRandom](https://docs.oracle.com/javase/8/docs/api/java/security/SecureRandom.html).
 
 The implementation only differs slightly from the ones before. Frankly speaking, it is a drop-in replacement for `Random`:
 
