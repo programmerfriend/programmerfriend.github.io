@@ -1,8 +1,9 @@
 ---
 layout: post
 title: "Starting Into the New Decade - Software Engineer's Edition"
-bigimg: /img/content/new-year-2020_title.jpg
-share-img: https://programmerfriend.com/img/content/new-year-2020_title.jpg
+image: /img/content/new-year2019_title.jpg
+bigimg: /img/content/new-year2019_title.jpg
+share-img: https://programmerfriend.com/img/content/new-year2019_title.jpg
 tags: [new-year, developers]
 ---
 
