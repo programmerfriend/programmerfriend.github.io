@@ -66,8 +66,6 @@ What I like about the book is that it not only teaches to code with Java. It als
 
 Overall: If you want to learn Java, you can't go wrong with this book.
 
-There will be a [new version of Think Java] out at the beginning of 2020.
-
 ___
 <br><br> 
 
