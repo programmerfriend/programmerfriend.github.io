@@ -58,7 +58,7 @@ ___
 <br><br> 
 
 ## Think Java by Allen B. Downey & Chris Mayfield
-<a href="https://www.amazon.com/Think-Java-Like-Computer-Scientist/dp/1491929561/ref=as_li_ss_il?keywords=think+java&qid=1564785438&s=gateway&sr=8-1&linkCode=li3&tag=prgfrd-20&linkId=2061a5b00cc2dba7644c2d62bf401e79" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1491929561&Format=_SL500_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=prgfrd-20" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=prgfrd-20&l=li3&o=1&a=1491929561" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+<a href="https://www.amazon.com/Think-Java-Like-Computer-Scientist/dp/1492072508/ref=as_li_ss_il?ie=UTF8&linkCode=li2&tag=prgfrd-20&linkId=b3d97405d8dd5703d93cd7060344826b&language=en_US" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1492072508&Format=_SL500_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=prgfrd-20&language=en_US" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=prgfrd-20&language=en_US&l=li2&o=1&a=1492072508" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 
 [Think Java] has the subtitle "How to Think like a Computer Scientist". Living up to its title, the book not only shows details about the Java Programming Language but also about common Computer Science topics.
 
@@ -283,7 +283,7 @@ Feel free to reach out on [Twitter](https://twitter.com/eiselems) in case you wa
 
 [Introduction to Java Programming and Data Structures]: https://amzn.to/2YFwx0u
 [10th edition]: https://amzn.to/2yB1Xuq
-[Think Java]: https://amzn.to/2YBlIwr
+[Think Java]: https://amzn.to/2RjTu9g
 [new version of Think Java]: https://amzn.to/2YEDgru
 [Clean Code: A Handbook of Agile Software]: https://amzn.to/2Yk6zEF
 [The Pramatic Programmer]: https://amzn.to/2LK5Yp7
