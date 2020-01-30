@@ -32,6 +32,7 @@ layout: base
       {% endif %}
       <article role="main" class="blog-post">
         {{ content | replace: 'a href="http', 'a rel="nofollow" href="http' }}
+        <br> <br>
         {% include author.html %}
         {% assign posts = site[page.collection] | sample:5 %}
         {% assign relatedCount = 0 %}
