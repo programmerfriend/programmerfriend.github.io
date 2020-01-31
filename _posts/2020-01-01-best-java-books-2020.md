@@ -197,7 +197,7 @@ ___
 <br><br> 
 
 At first I didn't wanted to include books about Frameworks in this list.
-After thinking more about it I came to the conclusion that (IMGO)  Java is currently nothing without Spring and Spring Boot.
+After thinking more about it I came to the conclusion that, in my opinion, Java is currently nothing without Spring and Spring Boot.
 This is at least true if you want to get a Job as a Java Developer.
 
 To be totally honest I am not really satisfied with all the books out there about Spring and Spring Boot in particular.
