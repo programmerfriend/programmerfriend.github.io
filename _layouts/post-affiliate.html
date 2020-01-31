@@ -34,6 +34,8 @@ layout: base-without-ads
         {{ content | replace: 'a href="http', 'a rel="nofollow" href="http' }}
         <br> <br>
         {% include author.html %}
+        <br>
+        <small>We are a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for us to earn fees by linking to Amazon.com and affiliated sites.</small>
         {% assign posts = site[page.collection] | sample:5 %}
         {% assign relatedCount = 0 %}
         {% if posts.size > 0 %}
@@ -105,6 +107,3 @@ layout: base-without-ads
     </div>
   </div>
 </div>
-
-
-<small>We are a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for us to earn fees by linking to Amazon.com and affiliated sites.</small>
