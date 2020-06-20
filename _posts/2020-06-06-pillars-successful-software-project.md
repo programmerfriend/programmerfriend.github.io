@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Pillars of a Successful Software Project"
+share-img: /img/content/successful-softwareproject_share.png
 image: /img/content/successful-softwareproject_share.png
 bigimg: /img/content/successful-softwareproject_title.jpg
 permalink: /pillars-successful-software-project
