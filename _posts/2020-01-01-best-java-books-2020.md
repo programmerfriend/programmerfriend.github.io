@@ -42,6 +42,8 @@ Following Liang along does not require any previous knowledge about programming 
 The only downside to this really good text book is the price. It is quite expensive.
 Depending on your situation, I would try to grab an used but in good condition copy of the [10th edition] which according to my knowledge is almost the same as the latest one.
 
+<a href="https://www.amazon.com/Introduction-Programming-Structures-Comprehensive-Version/dp/0134670949/ref=as_li_ss_il?keywords=Introduction+to+Java+Programming+and+Data+Structures&qid=1564783554&s=gateway&sr=8-1&linkCode=li3&tag=programmerfri-20&linkId=ab917cd65232e864291cfb3227a02c05" target="_blank" class="amzButton">Check Reviews and Prices on Amazon</a>
+
 ___
 <br><br> 
 
@@ -54,6 +56,9 @@ This is not a book every Java Developers needs to own. If you come from any othe
 
 Similar to [Head First Design Patterns] which is further down the list, [Head First Java] is written in an engaging way and makes sure that you don't want to put it away. After finishing it, one should be good switching to any other Java learning resource.
 
+
+<a href="https://www.amazon.com/Head-First-Java-Kathy-Sierra/dp/0596009208/ref=as_li_ss_il?keywords=head+first+java&qid=1564268049&s=gateway&sr=8-1&linkCode=li3&tag=programmerfri-20&linkId=54511ab33ab1d95a7d5ec5b84d70c9f3" target="_blank" class="amzButton">Check Reviews and Prices on Amazon</a>
+
 ___
 <br><br> 
 
@@ -65,6 +70,8 @@ ___
 What I like about the book is that it not only teaches to code with Java. It also also teaches a lot of vocabulary and concepts which you will need when you want to talk about it with other people. Vocabulary is really an issue overlooked in a lot of learner books.
 
 Overall: If you want to learn Java, you can't go wrong with this book.
+
+<a href="https://www.amazon.com/Think-Java-Like-Computer-Scientist/dp/1492072508/ref=as_li_ss_il?ie=UTF8&linkCode=li2&tag=programmerfri-20&linkId=b3d97405d8dd5703d93cd7060344826b&language=en_US" target="_blank" class="amzButton">Check Reviews and Prices on Amazon</a>
 
 ___
 <br><br> 
@@ -84,6 +91,8 @@ This is one of the books for which I would recommend to keep it around. It doesn
 
 If you ever think about getting a welcome gift for a Junior Developer in your company - Please go for this book.
 
+<a href="https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882/ref=as_li_ss_il?crid=2LPDEFFWLY2B1&keywords=clean+code&qid=1564266758&s=gateway&sprefix=clean+code,aps,240&sr=8-1&linkCode=li3&tag=programmerfri-20&linkId=7be7691c9b83868b2f8f1be8077d62c2" target="_blank" class="amzButton">Check Reviews and Prices on Amazon</a>
+
 ___
 <br><br> 
 
@@ -97,6 +106,8 @@ As a result, [The Pramatic Programmer] is a breeze to read and makes remembering
 
 In comparison to *Clean Code* it is less about code but more about principles and the Programming as a craft.
 
+<a href="https://www.amazon.com/Pragmatic-Programmer-journey-mastery-Anniversary/dp/0135957052/ref=as_li_ss_il?ie=UTF8&linkCode=li3&tag=programmerfri-20&linkId=ecf1a3630cdf92abb00d52c775182ecf" target="_blank" class="amzButton">Check Reviews and Prices on Amazon</a>
+
 ___
 <br><br> 
 
@@ -109,6 +120,8 @@ Hey, finally a Java Book on this "Best Java Books list". Actually I think it is 
 Here we have another book which I would definitely recommend to buy. For me it is not a "read once" book. From time to time I pick it up at work to look up a few things here and there.
 
 It is also a good source for solving arguments in Code Reviews 😊.
+
+<a href="https://www.amazon.com/Effective-Java-Joshua-Bloch/dp/0134685997/ref=as_li_ss_il?keywords=effective+java&qid=1564268102&s=gateway&sr=8-1&linkCode=li3&tag=programmerfri-20&linkId=fa178caa9d564699c795bdf481d1a8a6" target="_blank" class="amzButton">Check Reviews and Prices on Amazon</a>
 
 ___
 <br><br> 
@@ -127,6 +140,8 @@ The [first Edition of Refactoring] includes the examples in Java.**
 
 I personally only read the first edition, so I can not speak directly for the second.
 
+<a href="https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672/ref=as_li_ss_il?crid=XOJKIJC415RY&keywords=improving+the+design+of+existing+code&qid=1564267774&s=books&sprefix=improving+the+design+of,stripbooks-intl-ship,220&sr=1-2&linkCode=li3&tag=programmerfri-20&linkId=2442a24d705703a964067da9b08c53f9" target="_blank" class="amzButton">Check Reviews and Prices on Amazon</a>
+
 ___
 <br><br> 
 
@@ -138,6 +153,8 @@ It is not an easy read, but I think this is due to concurrency not being an easy
 
 Sadly it is a bit dated and based on Java 6, a lot of the new constructs could also use an explaination similar to the ones mentioned in the book.
 For all the things covered it is still spot-on.
+
+<a href="https://www.amazon.com/Java-Concurrency-Practice-Brian-Goetz/dp/0321349601/ref=as_li_ss_il?crid=2TVDA46CJYAK1&keywords=java+concurrency+in+practice&qid=1564268122&s=gateway&sprefix=java+concu,aps,221&sr=8-1&linkCode=li3&tag=programmerfri-20&linkId=ef57b2769d3057e94b5b576ba993bfac" target="_blank" class="amzButton">Check Reviews and Prices on Amazon</a>
 
 ___
 <br><br> 
@@ -152,6 +169,8 @@ It comes with all the techniques and tools you need for successfully writing you
 
 I would recommend it to the more experienced Java Developers.
 
+<a href="https://www.amazon.com/Test-Driven-Acceptance-Java-Developers/dp/1932394850/ref=as_li_ss_il?crid=251S9KZSEGDE6&keywords=test+driven+tdd+and+acceptance+tdd+for+java+developers&qid=1564267991&s=gateway&sprefix=Test+driven+tdd+an,aps,228&sr=8-1&linkCode=li3&tag=programmerfri-20&linkId=8f489cead19cb19a9aaabd7bce856431" target="_blank" class="amzButton">Check Reviews and Prices on Amazon</a>
+
 ___
 <br><br> 
 
@@ -161,6 +180,8 @@ ___
 If you ever had to force your way through any Design Patterns book and you couldn't keep reading it - this book is for you!
 
 [Head First Design Patterns] is an easy to read book. It is by a mile not a reference book, but it is a book which helps you to learn a few  Design Patterns AND remember them. I really appreciate how [Head First Design Patterns] made learning about Design Patterns actually fun.
+
+<a href="https://www.amazon.com/Head-First-Design-Patterns-Brain-Friendly/dp/0596007124/ref=as_li_ss_il?crid=3A0OHG6A5V30U&keywords=head+first+design+patterns&qid=1564268033&s=gateway&sprefix=head+first+design,aps,231&sr=8-1&linkCode=li3&tag=programmerfri-20&linkId=6a3a98a059b5585e165ad8d10b59e7ec" target="_blank" class="amzButton">Check Reviews and Prices on Amazon</a>
 
 ___
 <br><br> 
@@ -174,6 +195,8 @@ What I liked already after skimming over it was that it covers a lot of real-wor
 The title is really underselling it - think I will still have some fun and learn a lot about hard won lessons.
 
 I think [Release It!] is a book you can recommend to just anybody wanting to write production-ready applications.
+
+<a href="https://www.amazon.com/Release-Design-Deploy-Production-Ready-Software/dp/1680502395/ref=as_li_ss_il?keywords=release+it&qid=1564267708&s=gateway&sr=8-1&linkCode=li3&tag=programmerfri-20&linkId=f23dc496726ca634aeacfefc873e7e00" target="_blank" class="amzButton">Check Reviews and Prices on Amazon</a>
 
 ___
 <br><br> 
@@ -192,6 +215,8 @@ In fact, the interoperability with Java is so good that you can really mix it in
 If you like Java, I am pretty sure you could get used to Kotlin and love it.
 
 [Kotlin in Action] is a good match for Java Developers wanting to learn Kotlin. The official documentation is also great!
+
+<a href="https://www.amazon.com/Kotlin-Action-Dmitry-Jemerov/dp/1617293296/ref=as_li_ss_il?crid=2YP10DSDW8P6N&keywords=kotlin+in+action&qid=1564268017&s=gateway&sprefix=kotlin+in+ac,aps,231&sr=8-1&linkCode=li3&tag=programmerfri-20&linkId=bbc9a0959a1f323c239e0b8cfb293c08" target="_blank" class="amzButton">Check Reviews and Prices on Amazon</a>
 
 ___
 <br><br> 
@@ -215,6 +240,8 @@ After talking a while I really think the 4th edition must be way better than the
 The sloppiness and errors he mentioned were at least not in the 4th edition.
 If you want a solid book about Spring, go get [Spring in Action 4th edition].
 
+<a href="https://www.amazon.com/Spring-Action-Covers-4/dp/161729120X/ref=as_li_ss_il?keywords=spring+in+action+4th+edition&qid=1564787787&s=gateway&sr=8-1&linkCode=li2&tag=programmerfri-20&linkId=21921fb70f0f07f32fd281120d6d245b" target="_blank" class="amzButton">Check Reviews and Prices on Amazon</a>
+
 ___
 <br><br> 
 
@@ -227,6 +254,8 @@ Still I would think that it makes a good job as a starting point for your Spring
 For further reading you can always refer to the official documentation.
 
 Another problem it has: It was written prior to Spring Boot 2.0 and therefore it did not age too well.
+
+<a href="https://www.amazon.com/Spring-Boot-Action-Craig-Walls/dp/1617292540/ref=as_li_ss_il?ie=UTF8&linkCode=li2&tag=programmerfri-20&linkId=1ee5fc0b4bc13760bb93b5f23db43e01" target="_blank" class="amzButton">Check Reviews and Prices on Amazon</a>
 
 ___
 <br><br> 
@@ -243,6 +272,8 @@ The second reason is that for me it is not a reference book.
 Don't get me wrong, it is a great book for exploring all the things Spring and Spring Cloud offer. For me it wasn't more.
 I read it from cover to cover but now it collects dust since I refer to the documentations.
 
+<a href="https://www.amazon.com/Cloud-Native-Java-Designing-Resilient-dp-1449374646/dp/1449374646/ref=as_li_ss_il?_encoding=UTF8&me=&qid=&linkCode=li2&tag=programmerfri-20&linkId=ea7ec2bedd23ebf84d9ed5b5aa9f2320" target="_blank" class="amzButton">Check Reviews and Prices on Amazon</a>
+
 ___
 <br><br> 
 
@@ -252,6 +283,8 @@ ___
 One of the best Spring books out there. [Spring Microservices in Action] is really for the advanced reader. If you don't bring at least a year of Spring experience with you, it could get difficult. That's fine since the Author also claims this on the cover - I just wanted to also mention it here.
 
 Spring Microservices in Action describes similar things to Cloud Native Java. Overall I liked Spring Microservices in Action a bit more but that might be personal preference. Because of the similar topics, it has the same issues: Being written prior to Spring 5 and that it is not a reference since a lot of things are now outdated.
+
+<a href="https://www.amazon.com/Spring-Microservices-Action-John-Carnell/dp/1617293989/ref=as_li_ss_il?crid=2MPXX2UH0AP18&keywords=spring+microservices+in+action&qid=1564789338&s=gateway&sprefix=spring+microservices,aps,227&sr=8-1&linkCode=li2&tag=programmerfri-20&linkId=0cff1ecb5593ace0073d6a8dd1b199f1" target="_blank" class="amzButton">Check Reviews and Prices on Amazon</a>
 
 ___
 <br><br> 
@@ -265,6 +298,8 @@ I think based on his previous experience, he had some issues to see the topic fr
 
 Having said that, the book is really good in presenting all the reactive new things Spring 5 has to offer and how they integrate with Spring Boot 2.
 Back then I already had a bit of experience with Spring and Spring Boot and therefore really enjoyed the read. Your mileage may vary.
+
+<a href="https://www.amazon.com/Learning-Spring-Boot-2-0-microservices/dp/1786463784/ref=as_li_ss_il?keywords=learning+spring+boot+2.0&qid=1564790091&s=gateway&sr=8-1&linkCode=li3&tag=programmerfri-20&linkId=5d1522d75918e7c1b9482a1e92d81dae" target="_blank" class="amzButton">Check Reviews and Prices on Amazon</a>
 
 ___
 <br><br> 
