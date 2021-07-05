@@ -1,10 +1,11 @@
-version: "3"
-
+version: '3'
 services:
   jekyll:
-    image: jekyll/jekyll
+    image: starefossen/github-pages
+    environment:
+      - "JEKYLL_GITHUB_TOKEN:${JEKYLL_GITHUB_TOKEN}"
     ports:
       - "4000:4000"
-    command: jekyll serve --incremental --watch --host "0.0.0.0" --config _config.yml
     volumes:
-      - .:/srv/jekyll
+      - ./:/usr/src/app
+    tty: true
